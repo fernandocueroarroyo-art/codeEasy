@@ -1,0 +1,50 @@
+package produccionagricola;
+import java.util.Scanner;
+/**
+ *
+ * @author user
+ */
+public class ProduccionAgricola {
+
+    public static void main(String[] args) {
+        Scanner SC = new Scanner(System.in);
+        double[] produccion = new double[30];
+         
+        double total = 0;
+        for (int i = 0; i < produccion.length; i++){
+            System.out.println("ingrese la produccion del dia " + (i + 1)+ ": ");
+             produccion[i]= SC.nextDouble();
+             total += produccion[i];
+        }
+             double promedio = total/produccion.length;
+             double mayor = produccion[0];
+             double menor = produccion[0];
+             int diaMayor = 1;
+             int diaMenor = 1;
+             int diaSobrePromedio = 0;
+            
+        for (int i = 0; i < produccion.length; i++){
+           
+            if(produccion[i] > mayor){
+            mayor = produccion[i];
+            diaMayor = i + 1;
+             }
+            if(produccion[i] < menor){
+            menor = produccion[i];
+            diaMenor = i + 1;
+             }
+            if(produccion[i] > promedio){
+                diaSobrePromedio++;
+            }
+        }
+        
+        System.out.println(" La produccion total fue " + total);
+        System.out.println(" El promedio fue " + promedio);
+        System.out.println(" La  mayor produccion fue " + diaMayor + "con" + mayor);
+        System.out.println(" La  menor produccion fue " + diaMenor + "con" + menor);
+        System.out.println(" Dias que estuvieron por encima del promedio fueron " + diaSobrePromedio);
+        
+              SC.close();
+        }
+    }
+    
